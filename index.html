@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#10070d">
+<title>A Little Birthday Story ✦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#10070d;color:#fff7fa;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+:root{--pink:#ff7da8;--soft:#ffd9e6;--muted:#c9afb9;--dark:#10070d}
+.cursor{position:fixed;width:18px;height:18px;border:1px solid rgba(255,255,255,.6);border-radius:50%;pointer-events:none;z-index:1000;transform:translate(-50%,-50%);mix-blend-mode:difference}
+.progress{position:fixed;top:0;left:0;width:100%;height:2px;background:rgba(255,255,255,.08);z-index:100}.progress i{display:block;height:100%;width:0;background:var(--pink)}
+#intro{position:fixed;inset:0;background:#10070d;z-index:900;display:grid;place-items:center;text-align:center;transition:opacity 1s,visibility 1s}
+#intro.hide{opacity:0;visibility:hidden}
+.intro-inner{padding:28px}.eyebrow{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#bfa7b0}
+.intro-title{font:400 clamp(3.5rem,13vw,8rem)/.86 "DM Serif Display",serif;margin:25px 0}
+.intro-script{font:clamp(2.3rem,8vw,4.5rem) Parisienne,cursive;color:var(--pink)}
+.enter{margin-top:28px;background:transparent;color:white;border:1px solid rgba(255,255,255,.3);padding:14px 25px;border-radius:100px;cursor:pointer;letter-spacing:.12em;text-transform:uppercase;font-size:11px;transition:.3s}
+.enter:hover{background:#fff;color:#10070d}
+.hero{min-height:100svh;position:relative;display:grid;align-items:end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+linear-gradient(180deg,rgba(16,7,13,.1),rgba(16,7,13,.35) 45%,#10070d 100%),
+url("images/photo1.jpg") center 25%/cover no-repeat;filter:saturate(.9)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,transparent 0,rgba(16,7,13,.12) 45%,rgba(16,7,13,.7) 100%)}
+.hero-content{position:relative;padding:0 7vw 8vh;max-width:950px;z-index:2}
+.kicker{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#f5d8e2}
+.hero h1{font:400 clamp(4.2rem,13vw,10rem)/.82 "DM Serif Display",serif;margin:20px 0 10px;letter-spacing:-.03em}
+.hero h1 span{display:block;color:var(--pink);font:clamp(3rem,8vw,6.3rem) Parisienne,cursive;letter-spacing:0}
+.hero-copy{max-width:570px;color:#dfcbd2;line-height:1.8;font-size:15px}
+.scroll{display:flex;gap:12px;align-items:center;margin-top:30px;color:#fff;font-size:10px;letter-spacing:.25em;text-transform:uppercase}.line{width:55px;height:1px;background:rgba(255,255,255,.5)}
+.section{padding:130px 6vw}.wrap{max-width:1120px;margin:auto}.label{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--pink);margin-bottom:18px}
+.big{font:400 clamp(3rem,7vw,6rem)/.95 "DM Serif Display",serif;margin:0 0 25px}.big em{font:normal clamp(2.5rem,6vw,5rem) Parisienne,cursive;color:var(--pink)}
+.intro-text{max-width:720px;color:var(--muted);line-height:1.9;font-size:16px}
+.gallery{margin-top:60px;display:grid;grid-template-columns:repeat(12,1fr);gap:16px;align-items:start}
+.pic{overflow:hidden;position:relative;background:#1c0d15;border-radius:2px}
+.pic img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .7s}
+.pic:hover img{transform:scale(1.055);filter:brightness(1.08)}
+.p1{grid-column:span 7;height:620px}.p2{grid-column:span 5;height:420px}.p3{grid-column:span 5;height:520px;margin-top:-185px}.p4{grid-column:span 7;height:500px;margin-top:16px}
+.p5{grid-column:span 4;height:500px}.p6{grid-column:span 4;height:420px;margin-top:80px}.p7{grid-column:span 4;height:560px}.p8{grid-column:span 6;height:520px}.p9{grid-column:span 6;height:420px;margin-top:100px}.p10{grid-column:4/span 6;height:560px;margin-top:10px}
+.pic:after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+.quote{background:#f6e9ee;color:#1b0d14;text-align:center;padding:130px 20px;position:relative;overflow:hidden}
+.quote:before,.quote:after{content:"“";position:absolute;font:18rem/1 "DM Serif Display",serif;color:rgba(255,125,168,.12)}.quote:before{left:3%;top:-30px}.quote:after{content:"”";right:3%;bottom:-110px}
+.quote p{max-width:820px;margin:auto;font:400 clamp(2.2rem,5vw,4.3rem)/1.15 "DM Serif Display",serif;position:relative;z-index:1}.quote small{display:block;margin-top:35px;letter-spacing:.25em;text-transform:uppercase;font-size:10px;color:#876b77}
+.letter{min-height:100svh;display:grid;place-items:center;background:radial-gradient(circle at 50% 0,#3b1829 0,#180a11 42%,#10070d 75%);padding:100px 20px}
+.letter-card{max-width:760px;text-align:center}.letter-card .script{font:clamp(3rem,8vw,5rem) Parisienne,cursive;color:var(--pink)}.letter-card h2{font:400 clamp(3rem,8vw,6rem)/.9 "DM Serif Display",serif;margin:10px 0 30px}.letter-card p{color:#d9c1ca;line-height:2;font-size:16px}
+.signature{font:2.7rem Parisienne,cursive;color:#ff9fbe;margin-top:32px}
+.final{min-height:70svh;display:grid;place-items:center;text-align:center;padding:90px 20px;position:relative}.final h2{font:400 clamp(3.5rem,10vw,8rem)/.85 "DM Serif Display",serif;margin:0}.final h2 span{font:clamp(3rem,8vw,6rem) Parisienne,cursive;color:var(--pink)}.final p{color:var(--muted);margin:30px auto;max-width:550px;line-height:1.8}.replay{border:1px solid rgba(255,255,255,.2);color:white;background:transparent;padding:13px 20px;border-radius:999px;cursor:pointer}
+footer{padding:28px;text-align:center;color:#806a74;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.spark{position:fixed;width:3px;height:3px;border-radius:50%;background:#ffdbe7;pointer-events:none;z-index:20;animation:spark 1.5s ease-out forwards}@keyframes spark{to{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
+.fade{opacity:0;transform:translateY(35px);transition:1s cubic-bezier(.2,.7,.2,1)}.fade.on{opacity:1;transform:none}
+
+.caption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:72px 20px 20px;
+  background:linear-gradient(transparent,rgba(10,4,8,.82));
+  color:#fff7fa;font:400 17px/1.35 "DM Serif Display",serif;
+  letter-spacing:.01em;opacity:.98;
+}
+.caption small{
+  display:block;margin-top:7px;color:#ffb2c9;
+  font:500 9px/1 Inter,sans-serif;letter-spacing:.25em;text-transform:uppercase;
+}
+
+@media(max-width:760px){
+ .cursor{display:none}.section{padding:90px 20px}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pic{margin:0!important;height:330px!important}.p1{grid-column:span 2;height:470px!important}.p4,.p8,.p9,.p10{grid-column:span 2}.p10{grid-column:span 2}.hero-content{padding:0 24px 50px}.hero-bg{background-position:center top}.quote{padding:100px 25px}.letter{min-height:85svh}
+}
+@media(max-width:450px){.gallery{grid-template-columns:1fr}.pic,.p1,.p4,.p8,.p9,.p10{grid-column:span 1!important;height:430px!important}.p2,.p3,.p5,.p6,.p7{height:430px!important}}
+
+.music-pill{position:fixed;right:20px;bottom:20px;z-index:950;display:flex;align-items:center;gap:10px;padding:10px 12px 10px 13px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(20,10,16,.78);backdrop-filter:blur(16px);box-shadow:0 12px 35px rgba(0,0,0,.28);color:#f8e9ee;font:600 12px/1.1 Inter,system-ui,sans-serif;letter-spacing:.02em;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+.music-pill.ready{opacity:1;transform:translateY(0);pointer-events:auto}
+.music-dot{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:rgba(255,174,202,.14);color:#ffb2c9;font-size:15px}
+.music-pill.playing .music-dot{animation:musicPulse 1.1s ease-in-out infinite}
+.music-pill button{width:29px;height:29px;border:0;border-radius:50%;cursor:pointer;background:#f5d8e1;color:#351522;font-weight:800;font-size:12px;display:grid;place-items:center}
+.music-pill button:active{transform:scale(.94)}
+.yt-player{position:fixed;width:2px;height:2px;left:-10px;bottom:-10px;opacity:.01;pointer-events:none}
+@keyframes musicPulse{50%{transform:scale(1.14);box-shadow:0 0 0 7px rgba(255,174,202,.06)}}
+@media(max-width:600px){.music-pill{right:12px;bottom:12px;max-width:calc(100vw - 24px);font-size:11px}.music-pill button{flex:0 0 29px}}
+
+</style>
+</head>
+<body>
+<div class="progress"><i id="bar"></i></div>
+<div class="cursor" id="cursor"></div>
+
+<div id="intro">
+  <div class="intro-inner">
+    <div class="eyebrow">A secret little page • made for you</div>
+    <div class="intro-title">One day.<br><span class="intro-script">One beautiful reason</span><br>to celebrate.</div>
+    <button class="enter" id="enter">Enter the surprise ✦</button>
+  </div>
+</div>
+
+<main>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content fade">
+    <div class="kicker">Today is a little more special</div>
+    <h1>Happy Birthday <span>Dear Sister</span></h1>
+    <p class="hero-copy">This isn't just a birthday wish. It's a tiny story made from the moments that make you, you — the smiles, the chaos, the memories, and all the good days still waiting ahead.</p>
+    <div class="scroll"><span class="line"></span>scroll to begin</div>
+  </div>
+</section>
+
+<section class="section">
+ <div class="wrap">
+  <div class="label fade">Chapter I · The memories</div>
+  <h2 class="big fade">A collection of <em>little moments</em></h2>
+  <p class="intro-text fade">Some photographs become special because of where they were taken. Others become special because of who is in them. These are the second kind.</p>
+  <div class="gallery">
+   <div class="pic p1 fade"><img src="images/photo1.jpg" alt=""><span class="caption">A smile that makes even an ordinary moment feel special. ✨<small>Memory 01</small></span></div>
+   <div class="pic p2 fade"><img src="images/photo2.jpg" alt=""><span class="caption">Some moments become memories simply because you're in them. 🌸<small>Memory 02</small></span></div>
+   <div class="pic p3 fade"><img src="images/photo3.webp" alt=""><span class="caption">The best memories are the ones we never planned to make. 🤍<small>Memory 03</small></span></div>
+   <div class="pic p4 fade"><img src="images/photo4.jpg" alt=""><span class="caption">A little moment, a lot of happiness, and a memory worth keeping. 💕<small>Memory 04</small></span></div>
+   <div class="pic p5 fade"><img src="images/photo5.webp" alt=""><span class="caption">Grace in the moment, warmth in the memory. 🌷<small>Memory 05</small></span></div>
+   <div class="pic p6 fade"><img src="images/photo6.webp" alt=""><span class="caption">Confidence, a little attitude, and a whole lot of charm. 😎<small>Memory 06</small></span></div>
+   <div class="pic p7 fade"><img src="images/photo7.jpg" alt=""><span class="caption">Every picture tells a story — and this one is one of my favourites. 👑<small>Memory 07</small></span></div>
+   <div class="pic p8 fade"><img src="images/photo8.jpg" alt=""><span class="caption">Family moments are the chapters we keep coming back to. 🫶<small>Memory 08</small></span></div>
+   <div class="pic p9 fade"><img src="images/photo9.webp" alt=""><span class="caption">Beautiful memories don't need a reason; they just need to be remembered. ✨<small>Memory 09</small></span></div>
+   <div class="pic p10 fade"><img src="images/photo10.webp" alt=""><span class="caption">Here's to this smile, this moment, and many more memories ahead. 💗<small>Memory 10</small></span></div>
+  </div>
+ </div>
+</section>
+
+<section class="quote">
+ <p class="fade">“The best things in life are often the people who make ordinary days feel unforgettable.”</p>
+ <small class="fade">Chapter II · A wish</small>
+</section>
+
+<section class="letter">
+ <div class="letter-card fade">
+   <div class="script">Dear Sis,</div>
+   <h2>Keep shining.</h2>
+   <p>
+     On your birthday, I just want you to know how much your presence means.
+     I hope the year ahead gives you reasons to laugh until your cheeks hurt,
+     dreams that feel exciting, people who genuinely care about you, and
+     peaceful days when you simply feel happy to be yourself.
+     <br><br>
+     Life will keep changing, but I hope one thing never changes:
+     that you keep that special place in our family where your smile makes
+     everything feel a little lighter.
+     <br><br>
+     Have the most beautiful birthday. You deserve a day that feels as
+     wonderful as the memories you have given us.
+   </p>
+   <div class="signature">With love, your brother ♡</div>
+ </div>
+</section>
+
+<section class="final">
+ <div class="fade">
+   <div class="label">Chapter III · The next chapter</div>
+   <h2>More smiles.<br><span>More memories.</span></h2>
+   <p>And hopefully, a lot more photographs — because this story is nowhere near finished.</p>
+   <button class="replay" id="replay">Replay the magic ✦</button>
+ </div>
+</section>
+</main>
+<footer>made with love · happy birthday, sister</footer>
+
+<script>
+const intro=document.getElementById('intro');
+document.getElementById('enter').onclick=()=>{intro.classList.add('hide');burst();startMusic();setTimeout(()=>document.querySelector('.hero .fade').classList.add('on'),350)}
+document.getElementById('replay').onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});intro.classList.remove('hide');}
+const cursor=document.getElementById('cursor');
+window.addEventListener('pointermove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('bar').style.width=(scrollY/(d.scrollHeight-innerHeight)*100)+'%'});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});
+document.querySelectorAll('.fade').forEach(x=>io.observe(x));
+function burst(){
+ for(let i=0;i<65;i++){setTimeout(()=>{
+  const s=document.createElement('i');s.className='spark';
+  s.style.left=(50+Math.random()*20-10)+'vw';s.style.top=(45+Math.random()*15-7.5)+'vh';
+  s.style.setProperty('--x',(Math.random()*360-180)+'px');s.style.setProperty('--y',(Math.random()*360-180)+'px');
+  document.body.appendChild(s);setTimeout(()=>s.remove(),1600)
+ },i*18)}
+}
+</script>
+
+<div class="music-pill" id="musicPill" aria-live="polite">
+  <span class="music-dot">♪</span>
+  <span id="musicText">Matargashti Cover · Tap to play</span>
+  <button id="musicToggle" type="button" aria-label="Play or pause music">▶</button>
+</div>
+<div id="ytPlayer" class="yt-player" aria-hidden="true"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+let player=null,playerReady=false,playing=false;
+const musicPill=document.getElementById('musicPill');
+const musicText=document.getElementById('musicText');
+const musicToggle=document.getElementById('musicToggle');
+function onYouTubeIframeAPIReady(){
+  player=new YT.Player('ytPlayer',{videoId:'WbZnoGEeso8',playerVars:{autoplay:0,controls:0,playsinline:1,rel:0,modestbranding:1},events:{onReady:function(){playerReady=true;musicPill.classList.add('ready');}}});
+}
+function startMusic(){
+  if(!playerReady)return;
+  player.unMute(); player.setVolume(55); player.playVideo();
+  playing=true; musicText.textContent='Matargashti Cover · Playing'; musicToggle.textContent='Ⅱ'; musicPill.classList.add('playing');
+}
+function stopMusic(){
+  if(!playerReady)return;
+  player.pauseVideo(); playing=false; musicText.textContent='Matargashti Cover · Paused'; musicToggle.textContent='▶'; musicPill.classList.remove('playing');
+}
+musicToggle.onclick=function(){playing?stopMusic():startMusic()};
+</script>
+
+</body>
+</html>
